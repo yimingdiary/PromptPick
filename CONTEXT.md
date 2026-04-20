@@ -23,8 +23,9 @@
   - 插件侧边栏已醒目显示当前采集目标，避免本地和 GitHub 写错位置
   - 插件 GitHub 模式会创建带 `collect` 标签的 Issue，沿用仓库 Actions 入库流程
   - 已执行 `npm run rebuild:index -- --normalize-items`、`npm run validate:data`、`npx tsc --noEmit --pretty false` 和 `npm run build`
+  - 已初始化本地 git 仓库，接入远程 `https://github.com/yimingdiary/PromptPick.git`，并把项目文件推送到远程 `main`
 - 进行中：
-  - 需要初始化 git 仓库并推送到 `https://github.com/yimingdiary/PromptPick.git`
+  - 无
 - 待开始：
   - 为特定目标站点继续补充更精确的 DOM 提取规则
   - 增加插件采集流程的自动化或手动回归清单
