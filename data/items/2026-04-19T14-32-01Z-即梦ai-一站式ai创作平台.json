@@ -1,0 +1,39 @@
+{
+  "source": "manual-collector",
+  "sourceUrl": "https://jimeng.jianying.com/ai-tool/work-detail/7625637132522081546",
+  "title": "即梦AI - 一站式AI创作平台",
+  "prompt": "删除蓝色涂抹区域内的主体、内容",
+  "negativePrompt": "",
+  "model": "图片 4.0",
+  "sampler": "",
+  "ratio": "3:4",
+  "resolution": "2K",
+  "width": null,
+  "height": null,
+  "steps": null,
+  "cfg": null,
+  "seed": null,
+  "imageUrl": "https://p26-dreamina-sign.byteimg.com/tos-cn-i-tb4s082cfz/12ff44a3ea5545f499569040a20101bf~tplv-tb4s082cfz-aigc_resize:2400:2400.webp?lk3s=4fa96020&x-expires=1778112000&x-signature=YCcG%2BYqtilUHRjn06w51%2B4hjpPI%3D",
+  "referenceImageUrls": [
+    "https://p11-dreamina-sign.byteimg.com/tos-cn-i-tb4s082cfz/3cfecb6262fc45509a1d66744338e04a~tplv-tb4s082cfz-resize:270:360.webp?lk3s=8e790bc3&x-expires=1808145108&x-signature=pReJ5qJHkGDJbX8fBJQMFwloVu0%3D"
+  ],
+  "author": "茉也",
+  "license": "unknown",
+  "tags": [],
+  "collectedAt": "2026-04-06T00:00:00.000Z",
+  "id": "2026-04-19T14-32-01Z-即梦ai-一站式ai创作平台",
+  "image": "/images/2026-04/2026-04-19T14-32-01Z-即梦ai-一站式ai创作平台.webp",
+  "thumbnail": "/images/2026-04/thumbs/2026-04-19T14-32-01Z-即梦ai-一站式ai创作平台.webp",
+  "referenceImages": [
+    {
+      "imageUrl": "https://p11-dreamina-sign.byteimg.com/tos-cn-i-tb4s082cfz/3cfecb6262fc45509a1d66744338e04a~tplv-tb4s082cfz-resize:270:360.webp?lk3s=8e790bc3&x-expires=1808145108&x-signature=pReJ5qJHkGDJbX8fBJQMFwloVu0%3D",
+      "image": "/images/2026-04/references/2026-04-19T14-32-01Z-即梦ai-一站式ai创作平台-ref-1.webp",
+      "thumbnail": "/images/2026-04/references/thumbs/2026-04-19T14-32-01Z-即梦ai-一站式ai创作平台-ref-1.webp",
+      "label": "智能参考"
+    }
+  ],
+  "status": "done",
+  "capturedAt": "2026-04-19T14:32:01.648Z",
+  "createdAt": "2026-04-19T14:32:01.648Z",
+  "updatedAt": "2026-04-19T14:32:01.648Z"
+}

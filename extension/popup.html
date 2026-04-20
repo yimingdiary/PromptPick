@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PromptPick</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body class="popup-body">
+    <main class="panel panel-popup">
+      <header class="hero">
+        <div>
+          <span class="badge">PromptPick / Collector</span>
+          <h1>采集当前页面</h1>
+          <p>读取当前页面里的图片、Prompt 和来源链接，可写入本地项目或提交到 GitHub 仓库。</p>
+        </div>
+        <div class="hero-actions">
+          <button class="icon-action" id="refresh" type="button" title="重新识别当前页面，不刷新网页">
+            ↻
+          </button>
+          <button class="icon-action" id="open-settings" type="button" title="打开插件设置">
+            ⚙
+          </button>
+        </div>
+      </header>
+
+      <section class="summary-card">
+        <div class="destination-banner" id="destination-banner">
+          <span id="destination-mode">检查目标</span>
+          <strong id="destination-target">正在读取配置...</strong>
+        </div>
+        <div>
+          <span class="meta-label">当前页面</span>
+          <strong id="page-title">等待读取...</strong>
+        </div>
+        <div>
+          <span class="meta-label">配置状态</span>
+          <strong id="config-state">检查中...</strong>
+        </div>
+      </section>
+
+      <form id="collector-form" class="collector-form">
+        <section class="group-card">
+          <div class="section-head">
+            <h2>基础信息</h2>
+            <span>Project item</span>
+          </div>
+
+          <label class="field">
+            <span>标题</span>
+            <input id="title" name="title" required />
+          </label>
+
+          <label class="field">
+            <span>Prompt</span>
+            <textarea id="prompt" name="prompt" rows="5" required></textarea>
+          </label>
+
+          <label class="field">
+            <span>Negative Prompt</span>
+            <textarea id="negativePrompt" name="negativePrompt" rows="3"></textarea>
+          </label>
+        </section>
+
+        <section class="group-card">
+          <div class="section-head">
+            <h2>参数与来源</h2>
+            <span>Metadata</span>
+          </div>
+
+          <div class="grid">
+            <label class="field">
+              <span>模型</span>
+              <input id="model" name="model" placeholder="Midjourney v6" />
+            </label>
+
+            <label class="field">
+              <span>比例</span>
+              <input id="ratio" name="ratio" placeholder="3:4" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>图片地址</span>
+            <input id="imageUrl" name="imageUrl" type="url" required />
+          </label>
+
+          <label class="field">
+            <span>来源地址</span>
+            <input id="sourceUrl" name="sourceUrl" type="url" required />
+          </label>
+
+          <label class="field">
+            <span>标签</span>
+            <input id="tags" name="tags" placeholder="cyberpunk, city, night" />
+          </label>
+        </section>
+
+        <footer class="form-footer">
+          <p id="status" class="status"></p>
+          <button id="submit" class="primary-button" type="submit">开始采集</button>
+        </footer>
+      </form>
+    </main>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>

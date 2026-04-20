@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PromptPick Settings</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body class="options-body">
+    <main class="panel panel-options">
+      <header class="hero hero-options">
+        <div>
+          <span class="badge">PromptPick / Settings</span>
+          <h1>采集设置</h1>
+          <p>选择采集到本地项目或 GitHub 仓库。侧边栏会醒目显示当前目标，避免写错位置。</p>
+        </div>
+      </header>
+
+      <form id="settings-form" class="collector-form">
+        <section class="group-card">
+          <div class="section-head">
+            <h2>采集目标</h2>
+            <span>Required</span>
+          </div>
+
+          <div class="mode-grid" role="radiogroup" aria-label="采集目标">
+            <label class="mode-card">
+              <input type="radio" name="targetMode" value="local" />
+              <span>
+                <strong>本地项目</strong>
+                <em>写入所选目录的 data / images</em>
+              </span>
+            </label>
+            <label class="mode-card">
+              <input type="radio" name="targetMode" value="github" />
+              <span>
+                <strong>GitHub 仓库</strong>
+                <em>创建 collect Issue，由 Actions 入库</em>
+              </span>
+            </label>
+          </div>
+        </section>
+
+        <section class="group-card">
+          <div class="section-head">
+            <h2>本地项目目录</h2>
+            <span>Local</span>
+          </div>
+
+          <div class="field">
+            <span>当前目录</span>
+            <div class="path-box" id="projectPath">未选择项目目录</div>
+          </div>
+
+          <div class="button-row">
+            <button class="secondary-button" id="pickProjectDir" type="button">选择项目根目录</button>
+            <button class="secondary-button danger-button" id="clearProjectDir" type="button">清除目录授权</button>
+          </div>
+        </section>
+
+        <section class="group-card">
+          <div class="section-head">
+            <h2>GitHub 仓库</h2>
+            <span>GitHub</span>
+          </div>
+
+          <div class="grid">
+            <label class="field">
+              <span>Owner</span>
+              <input id="githubOwner" placeholder="yimingdiary" autocomplete="off" />
+            </label>
+
+            <label class="field">
+              <span>Repo</span>
+              <input id="githubRepo" placeholder="PromptPick" autocomplete="off" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>GitHub Token</span>
+            <input id="githubToken" type="password" placeholder="需要 issues:write 权限" autocomplete="off" />
+          </label>
+
+          <p class="field-hint">GitHub 模式会创建带 <code>collect</code> 标签的 Issue，仓库中的 Actions 会完成图片下载和数据写入。</p>
+        </section>
+
+        <section class="group-card">
+          <div class="section-head">
+            <h2>采集默认值</h2>
+            <span>Optional</span>
+          </div>
+
+          <label class="field">
+            <span>默认 source</span>
+            <input id="defaultSource" placeholder="manual-collector" />
+          </label>
+        </section>
+
+        <footer class="form-footer">
+          <p id="status" class="status"></p>
+          <button class="primary-button" type="submit">保存设置</button>
+        </footer>
+      </form>
+    </main>
+
+    <script src="options.js" type="module"></script>
+  </body>
+</html>

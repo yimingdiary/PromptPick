@@ -1,0 +1,17 @@
+```json
+{
+  "source": "manual-collector",
+  "sourceUrl": "https://example.com/post/123",
+  "title": "赛博朋克夜景",
+  "prompt": "cyberpunk city at night, neon lights, cinematic, ultra detailed",
+  "negativePrompt": "blurry, low quality, deformed",
+  "model": "Midjourney v6",
+  "ratio": "3:4",
+  "imageUrl": "https://picsum.photos/seed/promptnest/1200/1500",
+  "author": "unknown",
+  "license": "unknown",
+  "tags": ["cyberpunk", "night", "city"],
+  "collectedAt": "2026-04-19T12:00:00Z"
+}
+```
+

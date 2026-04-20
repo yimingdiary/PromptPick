@@ -1,0 +1,39 @@
+{
+  "source": "manual-collector",
+  "sourceUrl": "https://jimeng.jianying.com/ai-tool/work-detail/7618031445323402505",
+  "title": "即梦AI - 一站式AI创作平台",
+  "prompt": "无提示词",
+  "negativePrompt": "",
+  "model": "图片 4.0",
+  "sampler": "",
+  "ratio": "1:1",
+  "resolution": "2K",
+  "width": null,
+  "height": null,
+  "steps": null,
+  "cfg": null,
+  "seed": null,
+  "imageUrl": "https://p26-dreamina-sign.byteimg.com/tos-cn-i-tb4s082cfz/6b624d4cb35d4b1094a74380bba0f388~tplv-tb4s082cfz-aigc_resize:2400:2400.webp?lk3s=4fa96020&x-expires=1778112000&x-signature=57BJYo19Cs0ymbcbMTLRN4y6ZyQ%3D",
+  "referenceImageUrls": [
+    "https://p11-dreamina-sign.byteimg.com/tos-cn-i-tb4s082cfz/8516e82f7cdc4fecba29552c88b53b42~tplv-tb4s082cfz-resize:360:360.webp?lk3s=8e790bc3&x-expires=1808145184&x-signature=aYRIfURq78tWnXQBtOY2jFMkcf0%3D"
+  ],
+  "author": "仟俚慕·东方神韵",
+  "license": "unknown",
+  "tags": [],
+  "collectedAt": "2026-03-17T00:00:00.000Z",
+  "id": "2026-04-19T14-33-52Z-即梦ai-一站式ai创作平台",
+  "image": "/images/2026-03/2026-04-19T14-33-52Z-即梦ai-一站式ai创作平台.webp",
+  "thumbnail": "/images/2026-03/thumbs/2026-04-19T14-33-52Z-即梦ai-一站式ai创作平台.webp",
+  "referenceImages": [
+    {
+      "imageUrl": "https://p11-dreamina-sign.byteimg.com/tos-cn-i-tb4s082cfz/8516e82f7cdc4fecba29552c88b53b42~tplv-tb4s082cfz-resize:360:360.webp?lk3s=8e790bc3&x-expires=1808145184&x-signature=aYRIfURq78tWnXQBtOY2jFMkcf0%3D",
+      "image": "/images/2026-03/references/2026-04-19T14-33-52Z-即梦ai-一站式ai创作平台-ref-1.webp",
+      "thumbnail": "/images/2026-03/references/thumbs/2026-04-19T14-33-52Z-即梦ai-一站式ai创作平台-ref-1.webp",
+      "label": "智能参考"
+    }
+  ],
+  "status": "done",
+  "capturedAt": "2026-04-19T14:33:52.169Z",
+  "createdAt": "2026-04-19T14:33:52.169Z",
+  "updatedAt": "2026-04-19T14:33:52.169Z"
+}

@@ -1,0 +1,106 @@
+name: Collect Prompt
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+      - reopened
+      - labeled
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  collect:
+    if: contains(join(github.event.issue.labels.*.name, ','), 'collect')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Write issue body to file
+        run: |
+          mkdir -p .tmp
+          cat <<'EOF' > .tmp/issue-body.txt
+          ${{ github.event.issue.body }}
+          EOF
+
+      - name: Process collect issue
+        id: collect
+        run: npm run ingest:issue -- --issue-body-file .tmp/issue-body.txt
+
+      - name: Commit generated files
+        if: steps.collect.outputs.status == 'created'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data images
+          git commit -m "feat(data): ingest issue #${{ github.event.issue.number }}"
+          git push
+
+      - name: Comment success
+        if: steps.collect.outputs.status == 'created'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `采集完成，已生成条目 \`${{ steps.collect.outputs.item_id }}\`。`
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: "closed"
+            });
+
+      - name: Comment duplicate
+        if: steps.collect.outputs.status == 'duplicate'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `条目已存在：\`${{ steps.collect.outputs.item_id }}\`，本次未重复入库。`
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: "closed"
+            });
+
+      - name: Mark failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ["failed"]
+            });
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `采集失败：${{ steps.collect.outputs.error_message || '请查看 Actions 日志。' }}`
+            });
+

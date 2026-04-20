@@ -1,0 +1,189 @@
+@layer components {
+  .promptnest-detail-modal .preview-area-TnDJHN {
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--detail-area-width);
+  }
+
+  .promptnest-detail-modal .preview-area-QscVpt {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    width: auto;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 56px;
+    contain: none;
+  }
+
+  .promptnest-detail-modal .detail-nav-controls {
+    position: fixed;
+    top: auto;
+    right: calc(var(--detail-area-width) / 2 - 47px);
+    bottom: 64px;
+    z-index: 30;
+    flex-direction: row;
+    gap: 10px;
+    transform: none;
+  }
+
+  .promptnest-detail-modal .detail-nav-controls button {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: var(--component-float-block-default);
+  }
+
+  .promptnest-detail-modal .detail-nav-controls button:hover {
+    background: var(--component-float-block-hover);
+  }
+
+  .promptnest-detail-modal .detail-nav-controls svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .promptnest-detail-modal .operation-area-EihPQ7 {
+    position: fixed;
+    right: calc(var(--detail-area-width) + 24px);
+    top: 72px;
+    z-index: 40;
+    width: auto;
+    height: auto;
+    padding-top: 0;
+    pointer-events: none;
+  }
+
+  .promptnest-detail-modal .close-button-PTpYOA {
+    margin-top: 0;
+    pointer-events: auto;
+  }
+
+  .promptnest-detail-modal .main-container-MeJEJY {
+    min-height: 100%;
+    padding-top: 38px;
+  }
+
+  .promptnest-detail-modal .main-container-MeJEJY .content-wrapper-yGrcJJ {
+    min-height: calc(100vh - 46px);
+    row-gap: 10px;
+  }
+
+  .promptnest-detail-modal .user-profile-container-YpAS0A {
+    height: auto;
+    min-height: 30px;
+    padding: 0;
+  }
+
+  .promptnest-detail-modal .user-section-O05SIg {
+    column-gap: 8px;
+  }
+
+  .promptnest-detail-modal .user-avatar-gP6jYP {
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .promptnest-detail-modal .avatar-image-Xos7qj {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .promptnest-detail-modal .work-info-section-kNeD31 {
+    border-bottom: 0.5px solid var(--stroke-secondary);
+    padding: 6px 0 10px;
+  }
+
+  .promptnest-detail-modal .meta-info-wrapper-xhHsPv {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .promptnest-detail-modal .meta-divider-lB0vke {
+    width: 1px;
+    height: 13px;
+    border-radius: 999px;
+    background: var(--text-disabled);
+  }
+
+  .promptnest-detail-modal .ai-generated-text-IHOsIL {
+    padding-left: 0;
+  }
+
+  .promptnest-detail-modal .ai-generated-text-IHOsIL::before {
+    display: none;
+  }
+
+  .promptnest-detail-modal .detail-info-n1sIVT {
+    gap: 6px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+  }
+
+  .promptnest-detail-modal .detail-info-n1sIVT .prompt-value-H7u3lm {
+    margin: 0 -6px;
+  }
+
+  .promptnest-detail-modal .prompt-value-text-cJL62n,
+  .promptnest-detail-modal .prompt-value-container-lIP4pF {
+    line-height: 23px;
+  }
+
+  .promptnest-detail-modal .prompt-tags-Ixl0vJ {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 2px;
+  }
+
+  .promptnest-detail-modal .divider-RsIwo2 {
+    height: 12px;
+    margin: 0;
+  }
+
+  .promptnest-detail-modal .action-buttons-wrapper-ibCKz2 {
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .promptnest-detail-modal .operation-button-ZGVDtf {
+    height: 42px;
+    min-height: 42px;
+  }
+
+  .promptnest-detail-modal .operation-icon-cJWKaj {
+    fill: none;
+    stroke: currentColor;
+  }
+
+  .promptnest-detail-modal .detail-captured-time-A1b2c3 {
+    margin-top: 10px;
+    padding-top: 0;
+    color: var(--text-tertiary);
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  @media (max-width: 960px) {
+    .promptnest-detail-modal .preview-area-QscVpt {
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      padding: 16px;
+    }
+
+    .promptnest-detail-modal .main-container-MeJEJY {
+      padding-top: 0;
+    }
+  }
+}

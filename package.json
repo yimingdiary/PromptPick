@@ -1,0 +1,37 @@
+{
+  "name": "promptnest",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config web/vite.config.ts",
+    "build:web": "vite build --config web/vite.config.ts",
+    "ingest:issue": "tsx scripts/process-issue.ts",
+    "generate:thumbnails": "tsx scripts/generate-thumbnails.ts",
+    "rebuild:index": "tsx scripts/rebuild-index.ts",
+    "validate:data": "tsx scripts/validate-data.ts",
+    "build": "npm run rebuild:index -- --normalize-items && npm run validate:data && npm run build:web"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.38.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "sharp": "^0.34.4",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.1.14",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.2",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.10"
+  }
+}
