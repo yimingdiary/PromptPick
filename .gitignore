@@ -6,4 +6,7 @@ coverage
 .idea
 .vscode
 *.log
-
+AGENT.md
+CONTEXT.md
+AIGC.md
+README.local.md
