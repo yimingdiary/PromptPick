@@ -166,8 +166,12 @@
     stroke: currentColor;
   }
 
-  .promptnest-detail-modal .detail-captured-time-A1b2c3 {
+  .promptnest-detail-modal .detail-meta-notes-A1b2c3 {
     margin-top: 10px;
+  }
+
+  .promptnest-detail-modal .detail-captured-time-A1b2c3,
+  .promptnest-detail-modal .detail-copyright-note-A1b2c3 {
     padding-top: 0;
     color: var(--text-tertiary);
     font-size: 12px;

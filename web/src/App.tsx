@@ -108,8 +108,6 @@ function ImageCard({
 
   return (
     <motion.div
-      layout
-      transition={{ layout: { duration: 0.24, ease: "easeInOut" } }}
       whileTap={{ scale: 0.985 }}
       className="group relative w-full cursor-zoom-in"
       onMouseEnter={() => setIsHovered(true)}
@@ -329,7 +327,10 @@ function DetailView({
                 </a>
               </div>
 
-              <div className="detail-captured-time-A1b2c3">采集时间 {capturedDate}</div>
+              <div className="detail-meta-notes-A1b2c3">
+                <div className="detail-captured-time-A1b2c3">采集时间 {capturedDate}</div>
+                <div className="detail-copyright-note-A1b2c3">以上数据信息采集至第三方平台，最终版权归属于原作者及平台所有。</div>
+              </div>
             </div>
           </motion.div>
         </aside>
@@ -356,6 +357,7 @@ export function App() {
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
   const filterPanelRef = useRef<HTMLDivElement | null>(null);
   const [galleryWidth, setGalleryWidth] = useState(1280);
+  const isDetailOpen = selectedId !== null;
 
   useEffect(() => {
     void (async () => {
@@ -378,22 +380,29 @@ export function App() {
   useEffect(() => {
     if (!selectedId) {
       setSelectedItem(null);
-      document.body.style.overflow = "";
       return;
     }
-
-    document.body.style.overflow = "hidden";
 
     void (async () => {
       const response = await fetch(`/data/items/${selectedId}.json`);
       const data = (await response.json()) as ItemRecord;
       setSelectedItem(data);
     })();
+  }, [selectedId]);
+
+  useEffect(() => {
+    if (!isDetailOpen) {
+      return;
+    }
+
+    const { body } = document;
+    const previousOverflow = body.style.overflow;
+    body.style.overflow = "hidden";
 
     return () => {
-      document.body.style.overflow = "";
+      body.style.overflow = previousOverflow;
     };
-  }, [selectedId]);
+  }, [isDetailOpen]);
 
   useEffect(() => {
     const element = galleryRef.current;
