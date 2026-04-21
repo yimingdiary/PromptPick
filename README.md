@@ -117,6 +117,18 @@ npm run rebuild:index -- --normalize-items
 npm run build
 ```
 
+## Cloudflare Pages 部署
+
+这个仓库部署到 Cloudflare Pages 时，不能直接把仓库根目录 `/` 当成最终静态产物发布。原因是根目录 [index.html](/Volumes/ZhuBaoyu/Web/PromptNest/index.html:12) 引用的是 `/web/src/main.tsx`，它只适用于 Vite 开发环境；线上必须发布构建后的 [dist/index.html](/Volumes/ZhuBaoyu/Web/PromptNest/dist/index.html:12) 和 `dist/assets/*`。
+
+Pages 推荐配置如下：
+
+- Root directory：`/`
+- Build command：`npm run build`
+- Build output directory：`dist`
+
+如果暂时不想在 Cloudflare 上执行构建，也至少要把 `Build output directory` 改成 `dist`，不能继续填 `/`，否则浏览器会直接请求源码里的 `.tsx` 入口，并触发模块脚本 MIME 类型错误，表现为整页白屏。
+
 本地模拟处理一条 Issue：
 
 ```bash
@@ -171,6 +183,13 @@ npm run ingest:issue -- --issue-body-file ./fixtures/issue-body.txt
 - GitHub 模式：GitHub owner、repo 和具备 Issues 写入权限的 token
 
 GitHub 模式默认适配 `yimingdiary/PromptPick`，但可以在设置页修改为其它仓库。
+
+关于 GitHub token 的存储与安全：
+
+- 插件当前把 `githubToken` 保存在浏览器扩展自己的 `chrome.storage.local` 中，不会跟随 `chrome.storage.sync` 跨设备同步
+- 对浏览器扩展来说，这已经比自行写入本地隐藏文件更合适；扩展前端并不能稳定、安全地自己管理一份任意路径的本地明文凭据文件
+- 这个 token 在提交 GitHub Issue 时必须以明文 `Bearer` 形式发给 GitHub API，因此把 token 改成只存哈希值不可行；哈希后的值无法还原成可用 token
+- 当前更合理的安全策略是：只给目标仓库最小权限的 fine-grained token、只存本地、不写入仓库、不做 sync、需要时可随时在 GitHub 后台吊销并重新生成
 
 ## 前端能力
 

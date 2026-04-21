@@ -24,8 +24,10 @@
   - 插件 GitHub 模式会创建带 `collect` 标签的 Issue，沿用仓库 Actions 入库流程
   - 已执行 `npm run rebuild:index -- --normalize-items`、`npm run validate:data`、`npx tsc --noEmit --pretty false` 和 `npm run build`
   - 已初始化本地 git 仓库，接入远程 `https://github.com/yimingdiary/PromptPick.git`，并把项目文件推送到远程 `main`
+  - 已确认 Cloudflare Pages 白屏原因为部署配置错误：未执行 `npm run build`，且把 `Build output directory` 设成了 `/`，导致线上直接加载 `/web/src/main.tsx`
+  - 已确认 GitHub Actions 出现一成功一失败的根因是同一条 collect Issue 同时触发 `opened` 和 `labeled` 两次工作流，导致并发提交时发生 push 冲突
 - 进行中：
-  - 无
+  - 收敛 GitHub collect workflow 触发条件并串行化执行，避免重复运行和 push 冲突
 - 待开始：
   - 为特定目标站点继续补充更精确的 DOM 提取规则
   - 增加插件采集流程的自动化或手动回归清单
@@ -45,6 +47,8 @@
 | 详情页关闭按钮改为 fixed 悬浮层 | 关闭按钮原本所在的中间操作栏会影响左侧预览区域的视觉居中 | 继续把关闭按钮放在参与布局的中间栏会让图片相对左侧红框偏移 |
 | GitHub 采集通过创建 `collect` Issue 实现 | 仓库已有 GitHub Actions Issue 入库流程，插件只需提交 JSON，图片下载和提交由 Actions 统一处理 | 让插件直接写 Git blobs 需要处理多文件 SHA、图片上传和冲突，复杂度更高且失败难追踪 |
 | GitHub token 存入 `chrome.storage.local` | token 属于敏感信息，不应跟随 sync 跨设备同步 | 存入 `chrome.storage.sync` 会扩大凭据暴露面 |
+| Cloudflare Pages 必须发布 `dist/` 构建产物 | 根目录 `index.html` 只适用于 Vite 开发态，直接发布会把 `.tsx` 源码当静态资源返回并触发 MIME 错误 | 继续把 Pages 输出目录设为 `/` 会导致浏览器请求 `/web/src/main.tsx`，页面白屏 |
+| collect workflow 不再监听 `labeled`，并对全仓库 collect 任务串行化 | 插件创建 Issue 时已直接附带 `collect` 标签，继续监听 `labeled` 会让同一条采集触发两次；所有采集都会改写共享索引文件，也需要避免并发 push | 保留 `labeled` 会重复执行；只按 issue 级并发控制仍无法避免多个 issue 同时写 `data/index.json` 造成冲突 |
 
 ### 待解决问题
 - [ ] 视觉复核：需要在浏览器中检查首页 fixed 纯色搜索/筛选、筛选弹层、瀑布流 hover、详情页关闭按钮悬浮后左侧居中和右侧信息区域偏底部左右切换按钮是否完全符合图示预期
@@ -52,9 +56,12 @@
 - [ ] 真实站点 DOM 稳定性：需验证目标站点在不刷新情况下，顶部扩展图标打开侧边栏是否能稳定读到当前详情页主图、Prompt 和智能参考图
 - [ ] 站点采集规则：当前仍依赖通用 class/DOM 选择器，后续需按目标平台补充专用提取逻辑；分辨率已先统一默认 `2K`
 - [ ] 图片下载兼容性：需要继续验证参考图远程 URL 的 403、重定向和防盗链情况
+- [ ] Cloudflare Pages 复测：将项目设置改为 `Build command = npm run build`、`Build output directory = dist` 后重新部署，确认白屏消失且资源路径正常
+- [ ] GitHub collect workflow 复测：再次提交一条采集，确认只触发一次 Actions run，且 Issue 正常评论并关闭
 
 ### 关键约束
 - 当前前端页面 HTML 入口是仓库根目录 `index.html`
+- Cloudflare Pages 线上环境必须发布 `dist/`，不能直接发布仓库根目录源码入口
 - Favicon 统一使用 `/img/icon.svg`
 - `web/` 目录只保留实际使用的源码和 Vite 配置
 - 插件不得再向网页注入悬浮按钮或 content script
@@ -66,11 +73,14 @@
 - 当前分辨率统一默认 `2K`
 - 插件 GitHub 模式依赖仓库存在 `.github/workflows/collect.yml`
 - GitHub token 仅存储在本地浏览器扩展存储中，不写入仓库文件
+- 浏览器扩展中的 GitHub token 需要以可用明文形式提交给 GitHub API，因此不能只存哈希值替代原 token
 
 ### 参考资料
 - `/Volumes/ZhuBaoyu/Web/PromptNest/AGENT.md`
 - `/Volumes/ZhuBaoyu/Web/PromptNest/README.md`
+- `/Volumes/ZhuBaoyu/Web/PromptNest/.github/workflows/collect.yml`
 - `/Volumes/ZhuBaoyu/Web/PromptNest/index.html`
+- `/Volumes/ZhuBaoyu/Web/PromptNest/dist/index.html`
 - `/Volumes/ZhuBaoyu/Web/PromptNest/img/icon.svg`
 - `/Volumes/ZhuBaoyu/Web/PromptNest/web/vite.config.ts`
 - `/Volumes/ZhuBaoyu/Web/PromptNest/web/src/main.tsx`

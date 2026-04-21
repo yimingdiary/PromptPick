@@ -6,11 +6,14 @@ on:
       - opened
       - edited
       - reopened
-      - labeled
 
 permissions:
   contents: write
   issues: write
+
+concurrency:
+  group: collect-prompt-${{ github.repository }}
+  cancel-in-progress: false
 
 jobs:
   collect:
@@ -103,4 +106,3 @@ jobs:
               issue_number: context.issue.number,
               body: `采集失败：${{ steps.collect.outputs.error_message || '请查看 Actions 日志。' }}`
             });
-
