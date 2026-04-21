@@ -93,6 +93,22 @@ npm run build
 
 仓库内置了基于 Issue 的采集流程，工作流文件是 `.github/workflows/collect.yml`。
 
+如果你准备使用插件的 GitHub 模式，先创建一个只给目标仓库使用的 token：
+
+1. 打开 GitHub 右上角头像，进入 `Settings`。
+2. 进入 `Developer settings`。
+3. 打开 `Personal access tokens` -> `Fine-grained tokens`。
+4. 点击 `Generate new token`。
+5. `Repository access` 选择 `Only select repositories`，然后只勾选要写入的仓库。
+6. `Permissions` 中把 `Issues` 设为 `Read and write`。
+7. 生成后复制 token，填到浏览器扩展设置页的 GitHub token 输入框。
+
+建议：
+
+- 优先使用 `Fine-grained token`，不要直接给全仓库范围过大的经典 token。
+- 这个 token 只用于创建采集 Issue，不需要额外开放代码推送权限。
+- token 只会保存在浏览器扩展本地存储里，丢失后需要重新生成并重新填写。
+
 触发方式：
 
 - 创建一个带 `collect` 标签的 Issue
@@ -123,6 +139,12 @@ npm run ingest:issue -- --issue-body-file ./fixtures/issue-body.txt
 - GitHub 模式：向目标仓库创建 `collect` Issue，再由 Actions 入库
 
 如果你准备把站点部署到公开环境，推荐使用 GitHub 模式。这样数据写入、图片处理和索引更新都由仓库工作流统一完成，部署链路会更稳定。
+
+插件设置 GitHub 模式时，需要填写：
+
+- `owner`：GitHub 用户名或组织名
+- `repo`：目标仓库名
+- `token`：上面创建的、具备目标仓库 `Issues: Read and write` 权限的 Fine-grained token
 
 ## 常用命令
 
