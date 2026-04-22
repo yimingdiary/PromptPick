@@ -1,0 +1,46 @@
+{
+  "source": "manual-collector",
+  "sourceUrl": "https://jimeng.jianying.com/ai-tool/work-detail/7595929060132277530",
+  "title": "即梦AI - 一站式AI创作平台",
+  "prompt": "保持原有造型和比例，色彩：黑色背景，呈现效果：字体内部填充手绘纹理，立体阴影层次，粉笔涂鸦手写感，8K超清天量插画风格",
+  "negativePrompt": "",
+  "model": "图片 4.1",
+  "sampler": "",
+  "ratio": "1:1",
+  "resolution": "2K",
+  "width": null,
+  "height": null,
+  "steps": null,
+  "cfg": null,
+  "seed": null,
+  "imageUrl": "https://p26-dreamina-sign.byteimg.com/tos-cn-i-tb4s082cfz/ec99efdf2e404824a17553656e54eb52~tplv-tb4s082cfz-aigc_resize_loss:1080:1080.webp?lk3s=4fa96020&x-expires=1779408000&x-signature=uyEAes8J58RXvwmBiAPIfw5lk%2Bk%3D",
+  "referenceImageUrls": [
+    "https://p11-dreamina-sign.byteimg.com/tos-cn-i-tb4s082cfz/e231abcf7f3b4d6e9659b8ffd5dc58ff~tplv-tb4s082cfz-resize:360:316.webp?lk3s=8e790bc3&x-expires=1808370088&x-signature=YXEyltpyGKaA5fITNPUr6zcuuWs%3D"
+  ],
+  "author": "小柒",
+  "license": "unknown",
+  "tags": [
+    "保持原有造型和比例",
+    "色彩：黑色背景",
+    "呈现效果：字体内部填充手绘纹理",
+    "立体阴影层次",
+    "粉笔涂鸦手写感",
+    "8k超清天量插画风格"
+  ],
+  "collectedAt": "2026-01-16T00:00:00.000Z",
+  "id": "b3fb15474fe3",
+  "image": "/images/2026-01/b3fb15474fe3.webp",
+  "thumbnail": "/images/2026-01/thumbs/b3fb15474fe3.webp",
+  "referenceImages": [
+    {
+      "imageUrl": "https://p11-dreamina-sign.byteimg.com/tos-cn-i-tb4s082cfz/e231abcf7f3b4d6e9659b8ffd5dc58ff~tplv-tb4s082cfz-resize:360:316.webp?lk3s=8e790bc3&x-expires=1808370088&x-signature=YXEyltpyGKaA5fITNPUr6zcuuWs%3D",
+      "image": "/images/2026-01/references/b3fb15474fe3-ref-1.webp",
+      "thumbnail": "/images/2026-01/references/thumbs/b3fb15474fe3-ref-1.webp",
+      "label": "智能参考"
+    }
+  ],
+  "status": "done",
+  "capturedAt": "2026-04-22T05:02:19.933Z",
+  "createdAt": "2026-04-22T05:02:19.933Z",
+  "updatedAt": "2026-04-22T05:02:19.933Z"
+}
