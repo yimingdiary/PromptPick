@@ -1,0 +1,44 @@
+{
+  "source": "manual-collector",
+  "sourceUrl": "https://jimeng.jianying.com/ai-tool/work-detail/7613295121332849946",
+  "title": "即梦AI - 一站式AI创作平台",
+  "prompt": "根据参考图中的字体风格生成文字“亲子好物节”，笔画的变形完全保持一致，白底黑字，大师作品",
+  "negativePrompt": "",
+  "model": "图片 4.0",
+  "sampler": "",
+  "ratio": "16:9",
+  "resolution": "2K",
+  "width": null,
+  "height": null,
+  "steps": null,
+  "cfg": null,
+  "seed": null,
+  "imageUrl": "https://p26-dreamina-sign.byteimg.com/tos-cn-i-tb4s082cfz/5d2f565bfa4844caaf6169147b2b217d~tplv-tb4s082cfz-aigc_resize:2048:2048.webp?lk3s=4fa96020&x-expires=1779408000&x-signature=wq8OtGokL8hg%2BpmXYwILXzP5B7U%3D",
+  "referenceImageUrls": [
+    "https://p26-dreamina-sign.byteimg.com/tos-cn-i-tb4s082cfz/2eac2a0e5b04455092a11b31113ddc71~tplv-tb4s082cfz-resize:360:360.webp?lk3s=8e790bc3&x-expires=1808369904&x-signature=vLtUZdirJ4XtYk%2Fvl9bffA46U88%3D"
+  ],
+  "author": "Angeladaddy",
+  "license": "unknown",
+  "tags": [
+    "根据参考图中的字体风格生成文字“亲子好物节”",
+    "笔画的变形完全保持一致",
+    "白底黑字",
+    "大师作品"
+  ],
+  "collectedAt": "2026-03-04T00:00:00.000Z",
+  "id": "e540fae82644",
+  "image": "/images/2026-03/e540fae82644.webp",
+  "thumbnail": "/images/2026-03/thumbs/e540fae82644.webp",
+  "referenceImages": [
+    {
+      "imageUrl": "https://p26-dreamina-sign.byteimg.com/tos-cn-i-tb4s082cfz/2eac2a0e5b04455092a11b31113ddc71~tplv-tb4s082cfz-resize:360:360.webp?lk3s=8e790bc3&x-expires=1808369904&x-signature=vLtUZdirJ4XtYk%2Fvl9bffA46U88%3D",
+      "image": "/images/2026-03/references/e540fae82644-ref-1.webp",
+      "thumbnail": "/images/2026-03/references/thumbs/e540fae82644-ref-1.webp",
+      "label": "智能参考"
+    }
+  ],
+  "status": "done",
+  "capturedAt": "2026-04-22T04:59:22.352Z",
+  "createdAt": "2026-04-22T04:59:22.352Z",
+  "updatedAt": "2026-04-22T04:59:22.352Z"
+}
